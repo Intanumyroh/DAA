@@ -1,0 +1,26 @@
+@startuml MotorListrikUseCase
+actor Pengguna
+actor Admin
+
+usecase "Melihat Ketersediaan Motor Listrik" as UC1
+usecase "Pemesanan Motor Listrik" as UC2
+usecase "Login Pengguna" as UC3
+usecase "Login Admin" as UC4
+usecase "Kelola Data Motor Listrik" as UC5
+usecase "Perbarui Ketersediaan Motor" as UC6
+usecase "Kelola Pemesanan" as UC7
+
+Pengguna --> UC3
+Admin --> UC4
+Pengguna --> UC1
+Pengguna --> UC2
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+
+UC3 --> UC1: Melihat Ketersediaan Motor Listrik
+UC3 --> UC2: Melakukan Pemesanan
+UC4 --> UC5: Menambah, Mengubah, Menghapus Data Motor
+UC4 --> UC6: Mengelola Ketersediaan Motor
+UC4 --> UC7: Meninjau, Menyetujui, Membatalkan Pemesanan
+@enduml

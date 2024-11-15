@@ -1,0 +1,56 @@
+@startuml aplikasi_motor_listrik
+title Flowchart untuk Aplikasi Cek Ketersediaan dan Pemesanan Motor Listrik
+
+start
+
+:Buka Aplikasi;
+
+:Masukkan Email dan Password;
+
+:Cek Kredensial;
+
+if (Kredensial Valid?) then (Ya)
+    if (Admin?) then (Ya)
+        :Login Sebagai Admin;
+        :Akses Manajemen Data Motor Listrik;
+        :Pilih Aksi;
+        
+        if (Aksi = Tambah Data Motor) then (Tambah Data Motor)
+            :Masukkan Detail Data Motor;
+            :Simpan Data Motor;
+        elseif (Aksi = Edit Data Motor) then (Edit Data Motor)
+            :Pilih Data Motor yang Akan Diedit;
+            :Perbarui Detail Data Motor;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Data Motor) then (Hapus Data Motor)
+            :Pilih Data Motor yang Akan Dihapus;
+            :Konfirmasi Penghapusan;
+        elseif (Aksi = Kelola Pemesanan) then (Kelola Pemesanan)
+            :Tinjau Pemesanan Masuk;
+            :Simpan Status Pemesanan;
+        endif
+        
+        :Logout;
+    else (Pengguna)
+        :Login Sebagai Pengguna;
+        :Akses Tampilan Ketersediaan Motor Listrik;
+        :Tampilkan Daftar Motor Listrik Tersedia;
+        :Pilih Motor untuk Dipesan;
+        :Isi Formulir Pemesanan;
+        
+        if (Pemesanan Sukses?) then (Ya)
+            :Konfirmasi Pemesanan;
+        else (Tidak)
+            :Tampilkan Pesan Gagal;
+        endif
+        
+        :Logout;
+    endif
+else (Tidak)
+    :Tampilkan "Kredensial Tidak Valid";
+    :Kembali ke Halaman Login;
+endif
+
+stop
+
+@enduml
