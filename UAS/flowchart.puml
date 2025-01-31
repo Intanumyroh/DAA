@@ -1,0 +1,43 @@
+// Flowchart dalam PlantUML
+// Simulasi strategi efisiensi operasional usaha kuliner
+
+@startuml
+start
+:Pesan bahan baku sesuai kebutuhan;
+:Persiapan dapur dan bahan masakan;
+if (Bahan baku tersedia?) then (Ya)
+  :Mulai memasak sesuai pesanan;
+  :Kemas makanan;
+  :Antar ke pelanggan atau sajikan;
+else (Tidak)
+  :Cari alternatif bahan atau tunda pesanan;
+endif
+stop
+@enduml
+
+// Kode Java untuk simulasi operasional usaha kuliner
+class UsahaKuliner {
+    boolean bahanTersedia;
+    
+    UsahaKuliner(boolean bahanTersedia) {
+        this.bahanTersedia = bahanTersedia;
+    }
+    
+    void prosesOperasional() {
+        System.out.println("Pesan bahan baku sesuai kebutuhan");
+        System.out.println("Persiapan dapur dan bahan masakan");
+        
+        if (bahanTersedia) {
+            System.out.println("Mulai memasak sesuai pesanan");
+            System.out.println("Kemas makanan");
+            System.out.println("Antar ke pelanggan atau sajikan");
+        } else {
+            System.out.println("Cari alternatif bahan atau tunda pesanan");
+        }
+    }
+    
+    public static void main(String[] args) {
+        UsahaKuliner restoran = new UsahaKuliner(true); // Ubah true ke false untuk melihat alternatif
+        restoran.prosesOperasional();
+    }
+}

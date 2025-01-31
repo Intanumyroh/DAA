@@ -1,0 +1,26 @@
+@startuml
+
+actor PemilikUsaha
+actor Pelanggan
+actor Karyawan
+
+rectangle "Sistem Manajemen Usaha Kuliner" {
+    usecase "Mengelola Menu" as UC1
+    usecase "Menerima Pesanan" as UC2
+    usecase "Menyediakan Layanan Antar" as UC3
+    usecase "Mengelola Keuangan" as UC4
+    usecase "Mengoptimalkan Stok Bahan" as UC5
+    usecase "Melakukan Promosi Digital" as UC6
+}
+
+PemilikUsaha --> UC1
+PemilikUsaha --> UC4
+PemilikUsaha --> UC5
+PemilikUsaha --> UC6
+Pelanggan --> UC2
+Pelanggan --> UC3
+Karyawan --> UC2
+Karyawan --> UC3
+Karyawan --> UC5
+
+@enduml
